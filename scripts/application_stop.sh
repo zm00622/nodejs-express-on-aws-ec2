@@ -1,4 +1,3 @@
 #!/bin/bash
-#Stopping existing node servers
-echo "Stopping any existing node servers"
-pkill node
+echo "Stopping any running Node.js processes..."
+pkill -u ec2-user -f "node app.js" || true

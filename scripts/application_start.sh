@@ -1,6 +1,9 @@
 #!/bin/bash
 echo "Starting the Node.js application..."
 
+#give permission for everything in the express-app directory
+sudo chmod -R 777 /home/ec2-user/express-app
+
 # Use hardcoded path instead of $HOME — CodeDeploy doesn't always set $HOME correctly
 export NVM_DIR="/home/ec2-user/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

@@ -1,15 +1,15 @@
 #!/bin/bash
+sudo yum install -y libatomic
 
-#download node and npm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/refs/heads/master/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-#create our working directory if it doesnt exist
-DIR="/home/ec2-user/express-app"
-if [ -d "$DIR" ]; then
-  echo "${DIR} exists"
-else
-  echo "Creating ${DIR} directory"
-  mkdir ${DIR}
+export NVM_DIR="/home/ec2-user/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+nvm install --lts
+
+if [ ! -d /home/ec2-user/express-app ]; then
+  mkdir -p /home/ec2-user/express-app
 fi
+
+
